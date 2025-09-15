@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: adaraa-backend
+    env: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: node src/server.js
+    autoDeploy: true
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
