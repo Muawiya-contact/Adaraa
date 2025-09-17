@@ -1,8 +1,11 @@
+// controllers/productController.js
+import { productRepo } from "../repositories/productRepo.sqlite.js";
+
 export async function listProducts(_req, res) {
-  // Temporary static list until models are added
-  const products = [
-    { id: "p1", title: "Summer Dress", price: 59.99 },
-    { id: "p2", title: "Classic Top", price: 29.99 },
-  ];
+  const products = productRepo.list();
   res.json({ products });
+}
+export async function createProduct(req, res) {
+  const product = productRepo.create(req.body);
+  res.status(201).json({ product });
 }
