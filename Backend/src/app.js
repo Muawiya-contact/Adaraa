@@ -42,5 +42,9 @@ app.get("/api/health", (_req, res) => {
 app.use("/api/products", productRoutes);
 
 app.use(errorHandler);
+app.get("/", (_req, res) => {
+  res.json({ ok: true, service: "ADARAA API", routes: ["/api/health", "/api/products"] });
+});
+app.get("/favicon.ico", (_req, res) => res.sendStatus(204));
 
 export default app;
